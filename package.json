@@ -4,9 +4,12 @@
   "description": "",
   "main": ".eleventy.js",
   "scripts": {
-    "watch:sass": "sass --no-source-map --watch src/scss:dist/css",
+    "watch:sass": "sass  --no-source-map --watch src/scss:dist/css",
     "watch:eleventy": "npx eleventy --serve",
-    "start": "npm-run-all --parallel watch:*"
+    "build:sass": "sass  --no-source-map src/scss:dist/css",
+    "build:eleventy": "eleventy",
+    "start": "npm-run-all build:sass --parallel watch:*",
+    "build": "npm-run-all build:sass build:eleventy"
   },
   "keywords": [],
   "author": "",
