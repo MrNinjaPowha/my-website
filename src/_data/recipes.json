@@ -17,7 +17,7 @@
     "result": {
       "name": "Experience Flask",
       "type": "item",
-      "url": "/mods/experience-flask-mod/experience-flask"
+      "url": "/xp-flask"
     }
   },
   "experiencetransfertable": {
@@ -38,7 +38,7 @@
     "result": {
       "name": "Experience Transfer Table",
       "type": "block",
-      "url": "/mods/experience-flask-mod/experience-transfer-table"
+      "url": "/xp-transfer-table"
     }
   }
 }
