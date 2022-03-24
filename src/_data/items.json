@@ -2,11 +2,11 @@
   "experienceflaskmod": [
     {
       "name": "Experience Flask",
-      "url": "experience-flask"
+      "url": "/xp-flask"
     },
     {
       "name": "Experience Transfer Table",
-      "url": "experience-transfer-table"
+      "url": "/xp-transfer-table"
     }
   ]
 }
