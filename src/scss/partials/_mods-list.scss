@@ -1,0 +1,45 @@
+@use '../abstract' as *;
+
+.mods-list {
+  --mods-columns: 1;
+  @include mq(small) {
+    --mods-columns: 2;
+  }
+  @include mq(medium) {
+    --mods-columns: 3;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(var(--mods-columns), 1fr);
+  gap: 1em;
+
+  &__mod {
+    display: block;
+    padding: 0.5em;
+    background-color: var(--clr-bg-100);
+    border: 1px solid var(--clr-fg-100);
+    border-radius: 0.5em;
+    transform: scale(1);
+    transition: 200ms transform;
+
+    &:is(:hover, :focus-visible) {
+      background-color: var(--clr-bg-400);
+      transform: scale(0.95);
+
+      & img {
+        filter: brightness(80%);
+      }
+    }
+  }
+
+  &__title {
+    font-size: var(--fs-500);
+  }
+
+  & img {
+    border: inherit;
+    width: 100%;
+    margin: 0.5em 0;
+    transition: 200ms filter;
+  }
+}

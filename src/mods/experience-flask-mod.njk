@@ -1,0 +1,42 @@
+---
+layout: 'layouts/base'
+title: 'The Experience Flask Mod'
+permalink: 'mods/experience-flask-mod.html'
+redirectFrom: '/xp-flask-mod'
+---
+
+<section class="section" aria-labelledby="page-title">
+  <h2 id="page-title">{{ title }}</h2>
+  <p>
+    The Experience Flask Mod only includes two items: the Experience Flask and the Experience
+    Transfer Table. The xp is stored in the Experience Flask, but you have to use the Experience
+    Transfer Table to actually transfer the xp into it.
+  </p>
+  <p>
+    To make it a little less tedious to use these items, the Experience Transfer Table can be put
+    next to an Enchanting Table to be able to directly use the xp stored in the Experience Flask on
+    the Transfer Table. Of course there are some mods that use xp for other things, and because of
+    that it is also possible to drink the xp out of the Experience Flask.
+  </p>
+</section>
+
+<section class="section" aria-labelledby="gallery-title">
+  <h3 id="gallery-title">Gallery</h3>
+
+  <div class="gallery">
+    <img src="/images/Background1080p.jpg" alt="Image 1" />
+    <img src="/images/Background1080p.jpg" alt="Image 2" />
+  </div>
+</section>
+
+<section class="section" aria-labelledby="items-title">
+  <h3 id="items-title">All Items</h3>
+
+  <ul>
+    {% for item in items.experienceflaskmod %}
+    <li>
+      <a href="{{ item.url }}">{{ item.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

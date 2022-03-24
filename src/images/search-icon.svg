@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59.1 59.1">
+  <defs>
+    <style>
+      .cls-1,
+      .cls-2 {
+        fill: none;
+        stroke: var(--clr-mc-gui);
+        stroke-miterlimit: 10;
+        stroke-width: 10px;
+      }
+      .cls-2 {
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <g id="Lager_2" data-name="Lager 2">
+    <g id="Lager_2-2" data-name="Lager 2">
+      <circle class="cls-1" cx="22.5" cy="22.5" r="17.5" />
+      <line class="cls-2" x1="35.03" y1="35.03" x2="54.1" y2="54.1" />
+    </g>
+  </g>
+</svg>

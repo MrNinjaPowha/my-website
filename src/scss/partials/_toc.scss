@@ -1,0 +1,42 @@
+.toc {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  background-color: var(--clr-bg-100);
+  border: 1px solid var(--clr-fg-300);
+
+  &__title {
+    display: block;
+    font-size: var(--fs-500);
+    margin-bottom: 0.2em;
+    border-bottom: inherit;
+  }
+
+  ol {
+    display: block;
+    counter-reset: item;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    & ol {
+      padding-left: 1em !important;
+    }
+  }
+  li {
+    display: block;
+
+    &::before {
+      content: counters(item, '.') '. ';
+      counter-increment: item;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    border-radius: 0.2em;
+    padding: 0 0.2em;
+
+    &:is(:hover, :focus-visible) {
+      background-color: hsl(225, 100%, 80%, 0.3);
+    }
+  }
+}

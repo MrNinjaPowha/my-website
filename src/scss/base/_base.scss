@@ -1,0 +1,17 @@
+@use '../abstract';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: fixed url(/images/Background1080p.jpg) no-repeat;
+  background-size: cover;
+  background-position-x: center;
+}
+
+.center-wrapper {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}

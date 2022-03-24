@@ -1,0 +1,51 @@
+---
+layout: 'layouts/base'
+title: 'Experience Flask'
+permalink: 'mods/experience-flask-mod/experience-flask.html'
+redirectFrom: 'xp-flask'
+---
+
+<section class="section" aria-labelledby="page-title">
+  <h2 id="page-title">{{ title }}</h2>
+  <p>
+    The Experience Flask is a container that can store a player's experience. To properly use it you
+    will also need an
+    <a href="/mods/experience-flask-mod/experience-transfer-table">Experience Transfer Table</a>.
+  </p>
+  <div class="toc">
+    <span class="toc__title">Content</span>
+    <ol>
+      <li>
+        <a href="#obtaining-title" class="toc__link">Obtaining</a>
+        <ol>
+          <li><a href="#crafting-title" class="toc__link">Crafting</a></li>
+        </ol>
+      </li>
+      <li>
+        <a href="#usage-title" class="toc__link">Usage</a>
+        <ol>
+          <li><a href="#storing-xp-title" class="toc__link">Storing XP</a></li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="section" class="section" aria-labelledby="obtaining-title">
+  <h3 id="obtaining-title">Obtaining</h3>
+  <h4 id="crafting-title">Crafting</h4>
+  {% crafting recipes.experienceflask %}
+</section>
+
+<section id="section" class="section" aria-labelledby="usage-title">
+  <h3 id="usage-title">Usage</h3>
+  <h4 id="storing-xp-title">Storing XP</h4>
+  <p>The Experience Flask can store a maximum of 100 experience levels.</p>
+  <p>
+    To put in the experience, you need an
+    <a href="/mods/experience-flask-mod/experience-transfer-table">Experience Transfer Table</a>.
+    When the experience is stored in the flask you can access it by drinking from the flask. You do
+    not have to do so however, as it also works when it is still sitting on the
+    <a href="/mods/experience-flask-mod/experience-transfer-table">Experience Transfer Table</a>.
+  </p>
+</section>

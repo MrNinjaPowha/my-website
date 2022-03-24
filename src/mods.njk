@@ -1,0 +1,24 @@
+---
+layout: 'layouts/base'
+title: 'MrNinjaPowha - Mods'
+permalink: '/mods/index.html'
+---
+
+<section class="section" aria-labelledby="mods-title">
+  <h2 id="mods-title" class="section__title">Mods</h2>
+  <ul class="mods-list">
+    {% for mod in mods.items %}
+    <li>
+      <a href="{{ mod.url }}" class="mods-list__mod"
+        ><span class="mods-list__title">
+          {{ mod.name }}
+        </span>
+        <img src="/images/mods/{{ mod.url }}/main.jpg" alt="Image of {{ mod.name }}" />
+        <p>
+          {{ mod.desc }}
+        </p></a
+      >
+    </li>
+    {% endfor %}
+  </ul>
+</section>

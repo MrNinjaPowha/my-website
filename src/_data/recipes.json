@@ -1,0 +1,44 @@
+{
+  "experienceflask": {
+    "type": "table",
+    "pattern": [" # ", "#D#", "###"],
+    "key": {
+      "#": {
+        "name": "Glass",
+        "type": "block",
+        "url": "https://minecraft.fandom.com/wiki/Glass"
+      },
+      "D": {
+        "name": "Diamond",
+        "type": "item",
+        "url": "https://minecraft.fandom.com/wiki/Diamond"
+      }
+    },
+    "result": {
+      "name": "Experience Flask",
+      "type": "item",
+      "url": "/mods/experience-flask-mod/experience-flask"
+    }
+  },
+  "experiencetransfertable": {
+    "type": "table",
+    "pattern": ["   ", " D ", "###"],
+    "key": {
+      "#": {
+        "name": "Obsidian",
+        "type": "block",
+        "url": "https://minecraft.fandom.com/wiki/Obsidian"
+      },
+      "D": {
+        "name": "Diamond",
+        "type": "item",
+        "url": "https://minecraft.fandom.com/wiki/Diamond"
+      }
+    },
+    "result": {
+      "name": "Experience Transfer Table",
+      "type": "block",
+      "url": "/mods/experience-flask-mod/experience-transfer-table"
+    }
+  }
+}

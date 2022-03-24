@@ -1,0 +1,15 @@
+.section {
+  background-color: var(--clr-bg-200);
+  margin: 2em 0;
+  padding: 1em 2em;
+
+  & h2,
+  h3 {
+    text-align: center;
+  }
+
+  & :is(p, ul, ol, h4, h5, h6):not([class]) {
+    max-width: 65rem;
+    margin: 1em auto;
+  }
+}

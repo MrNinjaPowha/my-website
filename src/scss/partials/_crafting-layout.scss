@@ -1,0 +1,48 @@
+.crafting {
+  --clr-crafting-gui: var(--clr-bg-100);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+
+  &__table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.2em;
+  }
+
+  &__slot {
+    width: 4em;
+    height: 4em;
+    background-color: var(--clr-crafting-gui);
+  }
+
+  &__block {
+    width: 100%;
+    padding: 15%;
+  }
+
+  &__item {
+    width: 100%;
+    padding: 10%;
+    image-rendering: crisp-edges;
+  }
+
+  &__output {
+    display: flex;
+    gap: inherit;
+    align-items: center;
+  }
+
+  &__arrow {
+    max-width: 6em;
+    min-width: 2em;
+    fill: var(--clr-crafting-gui);
+  }
+
+  &__result {
+    width: 5em;
+    height: 5em;
+    background-color: var(--clr-crafting-gui);
+  }
+}

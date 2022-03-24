@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "text": "Home",
+      "url": "/"
+    },
+    {
+      "text": "Mods",
+      "url": "/mods/"
+    },
+    {
+      "text": "GitHub",
+      "url": "https://github.com/MrNinjaPowha"
+    },
+    {
+      "text": "Twitter",
+      "url": "https://twitter.com/MPowha"
+    }
+  ]
+}

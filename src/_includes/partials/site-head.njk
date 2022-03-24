@@ -1,0 +1,20 @@
+<a class="skip-nav" href="#main-content">Skip to content</a>
+<header class="site-head">
+  <div class="site-head__banner">
+    <img src="/images/logo.png" alt="Logo" class="site-head__logo" />
+    <h1 class="site-head__title">MrNinjaPowha</h1>
+  </div>
+  <nav>
+    <ul class="nav-list">
+      {% for item in navigation.items %}
+      <li>
+        {% if item.url == page.url %}
+        <span class="nav-list__link current">{{ item.text }}</span>
+        {% else %}
+        <a href="{{ item.url }}" class="nav-list__link">{{ item.text }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>
