@@ -1,7 +1,7 @@
 .section {
   background-color: var(--clr-bg-200);
   margin: 2em 0;
-  padding: 1em 2em;
+  padding: 1em min(2em, 5%);
 
   & h2,
   h3 {
@@ -18,6 +18,6 @@
   }
 
   & :is(p, ul, ol):not([class]) {
-    margin: 0.5em 2rem;
+    margin: 0.5em min(2em, 2%);
   }
 }
