@@ -7,23 +7,12 @@
     }
   }
 
-  @each $screen-size, $property in $font-sizes {
-    @if $screen-size == small {
-      @each $prop, $value in $property {
-        --fs-#{$prop}: #{$value};
-      }
-    } @else if $screen-size == medium {
-      @include mq(small) {
-        @each $prop, $value in $property {
-          --fs-#{$prop}: #{$value};
-        }
-      }
-    } @else {
-      @include mq(medium) {
-        @each $prop, $value in $property {
-          --fs-#{$prop}: #{$value};
-        }
-      }
-    }
-  }
+  --fs-200: clamp(0.7rem, calc(0.69rem + 0.02vw), 0.69rem);
+  --fs-300: clamp(0.94rem, calc(0.8rem + 0.19vw), 0.83rem);
+  --fs-400: clamp(1rem, calc(0.91rem + 0.45vw), 1.25rem);
+  --fs-500: clamp(1.2rem, calc(1.03rem + 0.85vw), 1.67rem);
+  --fs-600: clamp(1.44rem, calc(1.16rem + 1.42vw), 2.22rem);
+  --fs-700: clamp(1.73rem, calc(1.28rem + 2.24vw), 2.96rem);
+  --fs-800: clamp(2.07rem, calc(1.39rem + 3.41vw), 3.95rem);
+  --fs-900: clamp(2.49rem, calc(1.48rem + 5.04vw), 5.26rem);
 }

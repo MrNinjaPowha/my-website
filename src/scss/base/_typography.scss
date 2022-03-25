@@ -1,5 +1,5 @@
 body {
-  line-height: 1.4;
+  line-height: 1.6;
   font-size: var(--fs-400);
   font-family: Arial, Helvetica, sans-serif;
   color: var(--clr-fg-100);
@@ -9,6 +9,7 @@ body {
 :is(h1, h2, h3, h4) {
   font-family: 'Trebuchet MS', Arial, sans-serif;
   font-weight: normal;
+  line-height: 1.1;
 }
 
 h1 {
