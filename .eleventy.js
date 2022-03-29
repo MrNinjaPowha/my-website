@@ -1,6 +1,8 @@
 function generateCraftingLayout(recipe) {
   const craftingType = recipe.type;
-  let htmlString = '';
+  let inputHtml = '';
+  let ingridients = [];
+  let ingridientsHtml = '';
 
   if (craftingType == 'table') {
     for (let i = 0; i < recipe.pattern.length; i++) {
@@ -8,14 +10,19 @@ function generateCraftingLayout(recipe) {
         const symbol = recipe.pattern[i][j];
 
         if (symbol == ' ') {
-          htmlString =
-            htmlString +
+          inputHtml =
+            inputHtml +
             `
             <span class="crafting__slot"></span>`;
         } else {
           const item = recipe.key[symbol];
-          htmlString =
-            htmlString +
+
+          if (!ingridients.includes(item.name)) {
+            ingridients = [...ingridients, item.name];
+          }
+
+          inputHtml =
+            inputHtml +
             `
             <a href="${item.url}" class="crafting__slot">
               <img src="/images/sprites/${item.name.toLowerCase().replace(/ /g, '_')}.png" alt="${
@@ -26,10 +33,18 @@ function generateCraftingLayout(recipe) {
       }
     }
 
+    ingridients.sort();
+    for (let i = 0; i < ingridients.length; i++) {
+      ingridientsHtml =
+        ingridientsHtml +
+        `
+        <li>${ingridients[i]}</li>`;
+    }
+
     return `
     <div class="crafting">
       <div class="crafting__${craftingType}">
-        ${htmlString}
+        ${inputHtml}
       </div>
       <div class="crafting__output">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 23" class="crafting__arrow">
@@ -42,6 +57,12 @@ function generateCraftingLayout(recipe) {
       recipe.result.type
     }">
         </a>
+      </div>
+      <div class="ingridients">
+        <span class="ingridients__title">Ingridients</span>
+        <ul>
+          ${ingridientsHtml}
+        </ul>
       </div>
     </div>`;
   }

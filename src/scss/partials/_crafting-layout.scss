@@ -46,3 +46,12 @@
     background-color: var(--clr-crafting-gui);
   }
 }
+
+.ingridients {
+  border-left: 1px solid var(--clr-fg-100);
+
+  &__title {
+    font-size: var(--fs-500);
+    padding-left: 1em;
+  }
+}
