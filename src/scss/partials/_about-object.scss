@@ -1,0 +1,53 @@
+@use '../abstract' as *;
+
+.about-object {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+
+  &__details {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: inherit;
+
+    @include mq(medium) {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.object-display {
+  min-width: min-content;
+  background-color: var(--clr-bg-100);
+  border: var(--border-1);
+  padding: 0.2em 0.5em;
+
+  &__title {
+    font-size: var(--fs-500);
+  }
+
+  &__image {
+    border: var(--border-1);
+  }
+
+  &__table {
+    width: 100%;
+    min-width: max-content;
+    border-collapse: collapse;
+    margin-block: 0.2em;
+
+    & tr:not(:last-child) {
+      border-bottom: var(--border-1);
+    }
+  }
+
+  & th,
+  td {
+    padding-inline: 0.5em;
+  }
+
+  & th {
+    text-align: start;
+    border-right: var(--border-1);
+  }
+}
