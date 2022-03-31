@@ -27,7 +27,7 @@ function generateCraftingLayout(recipe) {
             <a href="${item.url}" class="crafting__slot">
               <img src="/images/sprites/${item.name.toLowerCase().replace(/ /g, '_')}.png" alt="${
               item.name
-            }" class="crafting__${item.type}">
+            }" class="image--${item.type}">
             </a>`;
         }
       }
@@ -53,7 +53,7 @@ function generateCraftingLayout(recipe) {
         <a href="${recipe.result.url}" class="crafting__result">
           <img src="/images/sprites/${recipe.result.name
             .toLowerCase()
-            .replace(/ /g, '_')}.png" alt="${recipe.result.name}" class="crafting__${
+            .replace(/ /g, '_')}.png" alt="${recipe.result.name}" class="image--${
       recipe.result.type
     }">
         </a>
