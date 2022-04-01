@@ -3,7 +3,7 @@
   padding: 0.2em 0.5em;
   min-width: max-content;
   background-color: var(--clr-bg-100);
-  border: 1px solid var(--clr-fg-300);
+  border: var(--border-1);
 
   &__title {
     display: block;

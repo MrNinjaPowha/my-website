@@ -37,7 +37,7 @@
 }
 
 .ingridients {
-  border-left: 1px solid var(--clr-fg-100);
+  border-left: var(--border-1);
 
   &__title {
     font-size: var(--fs-500);

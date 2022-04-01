@@ -17,7 +17,7 @@
     display: block;
     padding: 0.5em;
     background-color: var(--clr-bg-100);
-    border: 1px solid var(--clr-fg-100);
+    border: var(--border-1);
     border-radius: 0.5em;
     transform: scale(1);
     transition: 200ms transform;
