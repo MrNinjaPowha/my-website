@@ -1,0 +1,19 @@
+---
+permalink: /searchData.json
+eleventyExcludeFromCollections: true
+---
+[
+{%- for page in collections.searchable -%}
+  {%- if loop.revindex0 > 0 %}
+  {
+    "title": "{{ page.data.title }}",
+    "url": "{{ page.url }}"
+  },
+  {%- else %}
+  {
+    "title": "{{ page.data.title }}",
+    "url": "{{ page.url }}"
+  }
+  {%- endif -%}
+{%- endfor %}
+]
