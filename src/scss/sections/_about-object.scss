@@ -3,11 +3,17 @@
 .about-object {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   gap: 1em;
+
+  @include mq(small) {
+    flex-wrap: nowrap;
+  }
 
   &__details {
     display: flex;
-    flex-wrap: wrap-reverse;
+    align-items: inherit;
+    flex-wrap: wrap;
     gap: inherit;
 
     @include mq(medium) {
