@@ -4,6 +4,8 @@ module.exports = (config) => {
   // Set directories to pass through to the dist folder
   config.addPassthroughCopy('./src/images/');
   config.addPassthroughCopy('./src/js/');
+  config.addPassthroughCopy('./src/favicon.ico');
+  config.addPassthroughCopy('./src/icons');
   config.addNunjucksShortcode('crafting', generateCraftingLayout);
   config.addLiquidShortcode('crafting', generateCraftingLayout);
   config.addJavaScriptFunction('crafting', generateCraftingLayout);
