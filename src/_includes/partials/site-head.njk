@@ -4,17 +4,19 @@
     <img src="/images/logo.png" alt="Logo" class="site-head__logo" />
     <h1 class="site-head__title">MrNinjaPowha</h1>
   </div>
-  <nav>
-    <ul class="nav-list">
-      {% for item in navigation.items %}
-      <li>
-        {% if item.url == page.url %}
-        <span class="nav-list__link current">{{ item.text }}</span>
-        {% else %}
-        <a href="{{ item.url }}" class="nav-list__link">{{ item.text }}</a>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
+  <nav class="nav-list">
+    {% for item in navigation.items %} {% if item.url == page.url %}
+    <span class="nav-list__link current">{{ item.text }}</span>
+    {% else %}
+    <a href="{{ item.url }}" class="nav-list__link">{{ item.text }}</a>
+    {% endif %} {% endfor %}
+    <div class="search">
+      <div class="search__bar">
+        <img class="search__icon" src="/images/search-icon.svg" alt="" />
+        <input type="search" class="search__input" placeholder="Search..." />
+      </div>
+      <div class="search__result-list"></div>
+    </div>
+    <script src="/js/search.js"></script>
   </nav>
 </header>

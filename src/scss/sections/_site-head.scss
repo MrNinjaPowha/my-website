@@ -19,13 +19,14 @@
 .nav-list {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.4em;
   justify-content: space-evenly;
 
   &__link {
     display: block;
     position: relative;
     font-size: var(--fs-500);
-    padding: 0.5rem;
+    padding: 0.2em;
 
     &::after {
       content: '';
@@ -57,5 +58,50 @@
 
   &:focus {
     transform: translateY(0);
+  }
+}
+
+.search {
+  position: relative;
+
+  &:focus-within {
+    outline: var(--border-2);
+  }
+
+  &__bar {
+    display: flex;
+    height: 100%;
+    background-color: var(--clr-bg-100);
+  }
+
+  &__input {
+    outline: none;
+    font-size: var(--fs-500);
+    background-color: rgba($color: #000, $alpha: 0);
+    border: none;
+    color: inherit;
+  }
+
+  &__icon {
+    height: var(--fs-500);
+    margin: auto 0.5em;
+  }
+
+  &__result-list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--clr-bg-500);
+  }
+
+  &__result {
+    padding: 0.2em 0.5em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:is(:hover, :focus-visible) {
+      background-color: hsl(0, 0%, 20%);
+    }
   }
 }
