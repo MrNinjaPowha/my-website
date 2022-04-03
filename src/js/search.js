@@ -84,7 +84,7 @@ const showResults = (display) => {
 };
 
 const getDistance = (a, b) => {
-  let costs = new Array();
+  let costs = [];
 
   a = a.toLowerCase();
   b = b.toLowerCase();
