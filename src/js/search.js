@@ -5,13 +5,16 @@ const searchResults = searchResultList.childNodes;
 let pages = [];
 
 document.addEventListener('mouseup', () => {
+  /* This hides the results when you click to remove focus from the search bar.
+  If the results were removed instead of hidden, the link would not work before they disappear.
+  There might be another solution for that, but I think this works fine as well */
   if (searchBar != document.activeElement) {
     showResults(false);
   }
 });
 
 document.addEventListener('keydown', (event) => {
-  // Moves focus between and out of the search results
+  /* Moves focus between and out of the search results */
   const focusableList = [searchBar, ...searchResults];
 
   const index = focusableList.indexOf(document.activeElement);
@@ -34,6 +37,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 searchBar.addEventListener('keyup', (e) => {
+  /* This simply filters and sorts the results each time you type in the search bar */
   const searchString = e.target.value.toLowerCase();
 
   if (searchString) {
@@ -57,6 +61,7 @@ searchBar.addEventListener('keyup', (e) => {
 });
 
 const loadResults = async () => {
+  /* Loads all the search options from the json file */
   try {
     pages = await (await fetch('/searchData.json')).json();
     displayResults(pages);
@@ -67,6 +72,7 @@ const loadResults = async () => {
 };
 
 const displayResults = (results) => {
+  /* Displays the 10 most accurate results */
   const htmlString = results
     .slice(0, 10)
     .map((page) => {
