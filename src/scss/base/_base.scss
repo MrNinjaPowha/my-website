@@ -28,3 +28,21 @@ body {
     image-rendering: crisp-edges;
   }
 }
+
+table {
+  border-collapse: collapse;
+}
+
+tr:not(:last-child) {
+  border-bottom: var(--border-1);
+}
+
+th,
+td {
+  padding-inline: 0.5em;
+  text-align: start;
+
+  &:not(:last-child) {
+    border-right: var(--border-1);
+  }
+}

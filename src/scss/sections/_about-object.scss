@@ -39,21 +39,6 @@
   &__table {
     width: 100%;
     min-width: max-content;
-    border-collapse: collapse;
     margin-block: 0.2em;
-
-    & tr:not(:last-child) {
-      border-bottom: var(--border-1);
-    }
-  }
-
-  & th,
-  td {
-    padding-inline: 0.5em;
-  }
-
-  & th {
-    text-align: start;
-    border-right: var(--border-1);
   }
 }
