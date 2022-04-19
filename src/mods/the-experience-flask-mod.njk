@@ -1,17 +1,23 @@
 ---
 layout: layouts/base
-tags: searchable
+tags:
+  - searchable
+  - mod
 title: The Experience Flask Mod
-permalink: /mods/experience-flask-mod/index.html
+permalink: /mods/the-experience-flask-mod/index.html
 redirectFrom: /xp-flask-mod
+modDesc: 'A mod that lets you easily store your xp.'
+desc: 'The Experience Flask Mod only includes two items: the Experience Flask and the Experience Transfer Table. The Experience Flask is used to store a players xp, but you have to use the Experience Transfer Table to actually transfer the xp into it.'
 ---
 
 <section class="section" aria-labelledby="page-title">
   <h2 id="page-title">{{ title }}</h2>
   <p>
-    The Experience Flask Mod only includes two items: the Experience Flask and the Experience
-    Transfer Table. The xp is stored in the Experience Flask, but you have to use the Experience
-    Transfer Table to actually transfer the xp into it.
+    The Experience Flask Mod only includes two items: the
+    <a href="/xp-flask">Experience Flask</a> and the
+    <a href="/xp-transfer-table">Experience Transfer Table</a>. The Experience Flask is used to
+    store a players xp, but you have to use the Experience Transfer Table to actually transfer the
+    xp into it.
   </p>
   <p>
     To make it a little less tedious to use these items, the Experience Transfer Table can be put
@@ -34,9 +40,9 @@ redirectFrom: /xp-flask-mod
   <h3 id="items-title">All Items</h3>
 
   <ul>
-    {% for item in items.experienceflaskmod %}
+    {% for page in collections.xpflaskmod %}
     <li>
-      <a href="{{ item.url }}">{{ item.name }}</a>
+      <a href="{{ page.url }}">{{ page.data.title }}</a>
     </li>
     {% endfor %}
   </ul>

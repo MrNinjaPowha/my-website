@@ -3,17 +3,21 @@ permalink: /searchData.json
 eleventyExcludeFromCollections: true
 ---
 [
-{%- for page in collections.searchable -%}
-  {%- if loop.revindex0 > 0 %}
+{%- for page in collections.searchable %}
   {
     "title": "{{ page.data.title }}",
-    "url": "{{ page.url }}"
-  },
-  {%- else %}
-  {
-    "title": "{{ page.data.title }}",
-    "url": "{{ page.url }}"
+    "url": "{{ page.url }}",
+    "desc": "{{ page.data.desc }}",
+    "image": "
+    {%- if page in collections.mod -%}
+      /images/mods/{{ page.data.title | slugify }}/main.jpg
+    {%- else -%}
+      /images/sprites/{{ page.data.title | slugify }}.png
+    {%- endif -%}
+    "
   }
+  {%- if loop.revindex0 > 0 -%}
+    ,
   {%- endif -%}
-{%- endfor %}
+{% endfor %}
 ]

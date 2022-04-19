@@ -7,15 +7,18 @@ permalink: /mods/index.html
 <section class="section" aria-labelledby="mods-title">
   <h2 id="mods-title" class="section__title">Mods</h2>
   <ul class="mods-list">
-    {% for mod in mods.items %}
+    {% for mod in collections.mod %}
     <li>
       <a href="{{ mod.url }}" class="mods-list__mod"
         ><span class="mods-list__title">
-          {{ mod.name }}
+          {{ mod.data.title }}
         </span>
-        <img src="/images/mods/{{ mod.image }}/main.jpg" alt="Image of {{ mod.name }}" />
+        <img
+          src="/images/mods/{{ mod.data.title | slugify }}/main.jpg"
+          alt="Image of {{ mod.data.title }}"
+        />
         <p>
-          {{ mod.desc }}
+          {{ mod.data.modDesc }}
         </p></a
       >
     </li>
