@@ -14,6 +14,13 @@ eleventyExcludeFromCollections: true
     {%- else -%}
       /images/sprites/{{ page.data.title | slugify }}.png
     {%- endif -%}
+    ",
+    "rendering": "
+    {%- if page in collections.item -%}
+      --item
+    {%- elif page in collections.block -%}
+      --block
+    {%- endif -%}
     "
   }
   {%- if loop.revindex0 > 0 -%}

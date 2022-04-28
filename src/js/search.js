@@ -2,6 +2,9 @@ const searchBar = document.querySelector('.search__input');
 const searchResultList = document.querySelector('.search__result-list');
 const searchResults = searchResultList.childNodes;
 
+const searchPageBar = document.querySelector('.search-page__input');
+const searchPageResultList = document.querySelector('.search-page__result-list');
+
 let pages = [];
 
 document.addEventListener('mouseup', () => {
@@ -13,7 +16,7 @@ document.addEventListener('mouseup', () => {
   }
 });
 
-document.addEventListener('keydown', (event) => {
+document.addEventListener('keydown', (e) => {
   /* Moves focus between and out of the search results */
   const focusableList = [searchBar, ...searchResults];
 
@@ -21,15 +24,15 @@ document.addEventListener('keydown', (event) => {
   let nextIndex = 0;
 
   if (index >= 0) {
-    if (event.key == 'Tab') showResults(false);
-    else if (event.key == 'ArrowUp') {
+    if (e.key == 'Tab') showResults(false);
+    else if (e.key == 'ArrowUp') {
       // move focus up
-      event.preventDefault();
+      e.preventDefault();
       nextIndex = index > 0 ? index - 1 : 0;
       focusableList[nextIndex].focus();
-    } else if (event.key == 'ArrowDown') {
+    } else if (e.key == 'ArrowDown') {
       // move focus down
-      event.preventDefault();
+      e.preventDefault();
       nextIndex = index + 1 < focusableList.length ? index + 1 : index;
       focusableList[nextIndex].focus();
     }
@@ -37,8 +40,14 @@ document.addEventListener('keydown', (event) => {
 });
 
 searchBar.addEventListener('keyup', (e) => {
-  /* This simply filters and sorts the results each time you type in the search bar */
+  /* This function filters and sorts the results each time you type in the search bar in the page head */
   const searchString = e.target.value.toLowerCase();
+
+  if (e.key == 'Enter') {
+    // if the enter key is pressed the user is taken to the search page
+    localStorage.setItem('searchString', searchString);
+    window.location.href = '/search';
+  }
 
   if (searchString) {
     const filteredResults = pages.filter((page) => {
@@ -60,18 +69,32 @@ searchBar.addEventListener('keyup', (e) => {
   }
 });
 
-const loadResults = async () => {
+if (searchPageBar)
+  searchPageBar.addEventListener('keyup', (e) => {
+    const searchString = e.target.value.toLowerCase();
+
+    if (e.key == 'Enter' && searchString) {
+      localStorage.setItem('searchString', searchString);
+      displayPageResults(searchString);
+    }
+  });
+
+async function loadPages() {
   /* Loads all the search options from the json file */
   try {
-    pages = await (await fetch('/searchData.json')).json();
-    displayResults(pages);
-    showResults(false);
+    pages = await fetch('/searchData.json');
+    pages = await pages.json();
+
+    if (searchPageBar) {
+      searchPageBar.value = localStorage.getItem('searchString');
+      if (searchPageBar.value) displayPageResults(searchPageBar.value.toLowerCase());
+    }
   } catch (err) {
     console.error(err);
   }
-};
+}
 
-const displayResults = (results) => {
+function displayResults(results) {
   /* Displays the 10 most accurate results */
   const htmlString = results
     .slice(0, 10)
@@ -81,15 +104,63 @@ const displayResults = (results) => {
     .join('');
 
   searchResultList.innerHTML = htmlString;
-};
+}
 
-const showResults = (display) => {
+function showResults(display) {
   searchResults.forEach((result) => {
     result.style.display = display ? 'block' : 'none';
   });
-};
+}
 
-const getDistance = (a, b) => {
+function displayPageResults(searchString) {
+  /* Filters and displays the detailed search results on the search page */
+  const filteredResults = pages.filter((page) => {
+    return (
+      page.title.toLowerCase().includes(searchString) ||
+      page.desc.toLowerCase().includes(searchString) ||
+      includesAny(page.title.toLowerCase(), searchString.split(' '))
+    );
+  });
+
+  filteredResults.forEach((page) => {
+    page.accuracy =
+      getDistance(page.title, searchString) + 0.3 * getDistance(page.desc, searchString);
+  });
+
+  filteredResults.sort((a, b) => (a.accuracy < b.accuracy ? 1 : b.accuracy < a.accuracy ? -1 : 0));
+
+  console.log(filteredResults);
+
+  const htmlString = filteredResults
+    .map((page) => {
+      return `<a class="search-result" href="${page.url}">
+                <span class="search-result__title">${page.title}</span>
+                <div class="search-result__about">
+         
+                    <img class="search-result__image search-result__image${page.rendering}" src="${page.image}">
+             
+                  <p class="search-result__desc">${page.desc}</p>
+                </div>
+              </a>`;
+    })
+    .join('');
+
+  searchPageResultList.innerHTML = htmlString;
+}
+
+function includesAny(string, list) {
+  let includes = false;
+
+  list.forEach((word) => {
+    if (string.includes(word)) {
+      includes = true;
+    }
+  });
+
+  return includes;
+}
+
+function getDistance(a, b) {
   let costs = [];
 
   a = a.toLowerCase();
@@ -124,6 +195,6 @@ const getDistance = (a, b) => {
   }
 
   return (longer.length - costs[b.length]) / parseFloat(longer.length);
-};
+}
 
-loadResults();
+loadPages();
