@@ -1,13 +1,16 @@
-@use '../abstract';
+@use '../abstract' as *;
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: fixed url(/images/Background1080p.jpg) no-repeat;
+  background: fixed url(/images/Background720p.jpg) no-repeat;
   background-size: cover;
   background-position-x: center;
+  @include mq(small) {
+    background-image: url(/images/Background1080p.jpg);
+  }
 }
 
 .center-wrapper {
