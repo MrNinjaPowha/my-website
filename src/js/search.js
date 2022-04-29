@@ -8,9 +8,7 @@ const searchPageResultList = document.querySelector('.search-page__result-list')
 let pages = [];
 
 document.addEventListener('mouseup', () => {
-  /* This hides the results when you click to remove focus from the search bar.
-  If the results were removed instead of hidden, the link would not work before they disappear.
-  There might be another solution for that, but I think this works fine as well */
+  /* This hides the results when you click to remove focus from the search bar. */
   if (searchBar != document.activeElement) {
     showResults(false);
   }
@@ -70,11 +68,11 @@ searchBar.addEventListener('keyup', (e) => {
 });
 
 if (searchPageBar)
+  // only active on the search page
   searchPageBar.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();
 
     if (e.key == 'Enter' && searchString) {
-      localStorage.setItem('searchString', searchString);
       displayPageResults(searchString);
     }
   });
@@ -86,6 +84,7 @@ async function loadPages() {
     pages = await pages.json();
 
     if (searchPageBar) {
+      // Makes an initial search if on the search page
       searchPageBar.value = localStorage.getItem('searchString');
       if (searchPageBar.value) displayPageResults(searchPageBar.value.toLowerCase());
     }
@@ -107,6 +106,7 @@ function displayResults(results) {
 }
 
 function showResults(display) {
+  /* Changes display for the results in the page header */
   searchResults.forEach((result) => {
     result.style.display = display ? 'block' : 'none';
   });
@@ -115,30 +115,21 @@ function showResults(display) {
 function displayPageResults(searchString) {
   /* Filters and displays the detailed search results on the search page */
   const filteredResults = pages.filter((page) => {
-    return (
-      page.title.toLowerCase().includes(searchString) ||
-      page.desc.toLowerCase().includes(searchString) ||
-      includesAny(page.title.toLowerCase(), searchString.split(' '))
-    );
+    return includesAny(page.title.toLowerCase(), searchString.split(' '));
   });
 
   filteredResults.forEach((page) => {
-    page.accuracy =
-      getDistance(page.title, searchString) + 0.3 * getDistance(page.desc, searchString);
+    page.accuracy = getDistance(page.title, searchString) + getDistance(page.desc, searchString);
   });
 
   filteredResults.sort((a, b) => (a.accuracy < b.accuracy ? 1 : b.accuracy < a.accuracy ? -1 : 0));
-
-  console.log(filteredResults);
 
   const htmlString = filteredResults
     .map((page) => {
       return `<a class="search-result" href="${page.url}">
                 <span class="search-result__title">${page.title}</span>
                 <div class="search-result__about">
-         
-                    <img class="search-result__image search-result__image${page.rendering}" src="${page.image}">
-             
+                  <img class="search-result__image search-result__image${page.rendering}" src="${page.image}">
                   <p class="search-result__desc">${page.desc}</p>
                 </div>
               </a>`;
