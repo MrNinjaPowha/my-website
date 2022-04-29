@@ -1,0 +1,55 @@
+{% macro objectDisplay(item, type, values) %}
+<div class="object-display">
+  <span class="object-display__title">{{ item }}</span>
+  <img
+    class="object-display__image image--{{ type }}"
+    src="/images/sprites/{{ item | slugify }}.png"
+    alt="
+    {%- if type == 'item' -%}
+      {{ item }} item texture
+    {%- else -%}
+      {{ item }} block model
+    {%- endif -%}
+    "
+  />
+  <table class="object-display__table">
+    <tr>
+      <th>Rarity color</th>
+      <td>{{ values[0] }}</td>
+    </tr>
+    <tr>
+      <th>Renewable</th>
+      <td>{{ values[1] }}</td>
+    </tr>
+    <tr>
+      <th>Stackable</th>
+      <td>{{ values[2] }}</td>
+    </tr>
+  </table>
+</div>
+{% endmacro %} 
+
+{% macro advancements(args) %}
+<table class="advancements">
+  <tr>
+    <th class="advancements__header">Icon</th>
+    <th class="advancements__header">Advancement</th>
+    <th class="advancements__header">Description</th>
+  </tr>
+  {% for image, imageType, name, desc in args %}
+  <tr>
+    <td>
+      <div class="advancements__icon advancements__icon--normal">
+        <img
+          class="image--{{ imageType }}"
+          src="/images/sprites/{{ image }}.png"
+          alt="{{ name }} icon"
+        />
+      </div>
+    </td>
+    <td><b>{{ name }}</b></td>
+    <td>{{ desc }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endmacro %}

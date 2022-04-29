@@ -10,31 +10,12 @@ redirectFrom: /xp-flask
 desc: "The Experience Flask is a container that can store a player's experience. To properly use it you will also need an Experience Transfer Table."
 ---
 
+{% from 'macros.njk' import objectDisplay, advancements %}
+
 <section class="section" aria-labelledby="page-title">
   <h2 id="page-title">{{ title }}</h2>
   <div class="about-object">
-    <div class="object-display">
-      <span class="object-display__title">{{ title }}</span>
-      <img
-        class="object-display__image image--item"
-        src="/images/sprites/experience-flask.png"
-        alt="Experience Flask item texture"
-      />
-      <table class="object-display__table">
-        <tr>
-          <th>Rarity color</th>
-          <td>Common</td>
-        </tr>
-        <tr>
-          <th>Renewable</th>
-          <td>No</td>
-        </tr>
-        <tr>
-          <th>Stackable</th>
-          <td>No</td>
-        </tr>
-      </table>
-    </div>
+    {{ objectDisplay('Experience Flask', 'item', ['Common', 'No', 'No']) }}
     <div class="about-object__details">
       <p>
         The Experience Flask is a container that can store a player's experience. To properly use it
@@ -85,33 +66,15 @@ desc: "The Experience Flask is a container that can store a player's experience.
 
 <section class="section" aria-labelledby="advancements-title">
   <h3 id="advancements-title">Advancements</h3>
-  <table class="advancements">
-    <tr>
-      <th class="advancements__header">Icon</th>
-      <th class="advancements__header">Advancement</th>
-      <th class="advancements__header">Description</th>
-    </tr>
-    <tr>
-      <td>
-        <div class="advancements__icon advancements__icon--normal">
-          <img
-            class="image--item"
-            src="/images/sprites/experience-flask.png"
-            alt="A wide Bottle icon"
-          />
-        </div>
-      </td>
-      <td><b>A wide Bottle</b></td>
-      <td>Aquire an Experience Flask for the first time.</td>
-    </tr>
-    <tr>
-      <td>
-        <div class="advancements__icon advancements__icon--normal">
-          <img class="image--item" src="/images/sprites/experience-orb.png" alt="Slurp! icon" />
-        </div>
-      </td>
-      <td><b>Slurp!</b></td>
-      <td>Take a drink out of an Experience Flask.</td>
-    </tr>
-  </table>
+  {{
+    advancements([
+      [
+        'experience-flask',
+        'item',
+        'A wide bottle',
+        'Aquire an Experience Flask for the first time.'
+      ],
+      ['experience-orb', 'item', 'Slurp!', 'Take a drink out of an Experience Flask.']
+    ])
+  }}
 </section>
