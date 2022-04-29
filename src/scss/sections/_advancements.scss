@@ -25,7 +25,7 @@
     &--normal {
       background: transparent url(/images/advancements/normal.png) no-repeat;
       background-size: contain;
-      image-rendering: crisp-edges;
+      image-rendering: pixelated;
     }
 
     &--goal {

@@ -82,7 +82,7 @@
     width: var(--size);
 
     &--item {
-      image-rendering: crisp-edges;
+      image-rendering: pixelated;
     }
   }
 }
