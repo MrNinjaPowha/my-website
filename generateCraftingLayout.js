@@ -53,7 +53,7 @@ module.exports = function (recipe) {
         <a href="${recipe.result.url}" class="crafting__result">
           <img src="/images/sprites/${recipe.result.name
             .toLowerCase()
-            .replace(/ /g, '_')}.png" alt="${recipe.result.name}" class="image--${
+            .replace(/ /g, '-')}.png" alt="${recipe.result.name}" class="image--${
       recipe.result.type
     }" title="${recipe.result.name}">
         </a>
