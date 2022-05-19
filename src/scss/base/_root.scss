@@ -7,13 +7,14 @@
     }
   }
 
-  --fs-300: clamp(0.78rem, calc(0.72rem + 0.29vw), 0.94rem);
-  --fs-400: clamp(0.88rem, calc(0.74rem + 0.68vw), 1.25rem);
-  --fs-500: clamp(0.98rem, calc(0.74rem + 1.24vw), 1.67rem);
-  --fs-600: clamp(1.11rem, calc(0.7rem + 2.03vw), 2.22rem);
-  --fs-700: clamp(1.25rem, calc(0.62rem + 3.12vw), 2.96rem);
-  --fs-800: clamp(1.4rem, calc(0.48rem + 4.63vw), 3.95rem);
-  --fs-900: clamp(1.58rem, calc(0.24rem + 6.7vw), 5.26rem);
+  /* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1200,28,1.333,4,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+  --fs-300: clamp(0.79rem, calc(0.72rem + 0.35vw), 0.99rem);
+  --fs-400: clamp(0.89rem, calc(0.73rem + 0.77vw), 1.31rem);
+  --fs-500: clamp(1rem, calc(0.73rem + 1.36vw), 1.75rem);
+  --fs-600: clamp(1.13rem, calc(0.69rem + 2.2vw), 2.33rem);
+  --fs-700: clamp(1.27rem, calc(0.6rem + 3.35vw), 3.11rem);
+  --fs-800: clamp(1.42rem, calc(0.43rem + 4.95vw), 4.14rem);
+  --fs-900: clamp(1.6rem, calc(0.18rem + 7.13vw), 5.53rem);
 
   --border-1: 1px solid var(--clr-fg-100);
   --border-2: 2px solid var(--clr-fg-100);
