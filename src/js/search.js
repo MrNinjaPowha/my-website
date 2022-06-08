@@ -115,7 +115,10 @@ function showResults(display) {
 function displayPageResults(searchString) {
   /* Filters and displays the detailed search results on the search page */
   const filteredResults = pages.filter((page) => {
-    return includesAny(page.title.toLowerCase(), searchString.split(' '));
+    return (
+      includesAny(page.title.toLowerCase(), searchString.split(' ')) ||
+      includesAny(page.desc.toLowerCase(), searchString.split(' '))
+    );
   });
 
   filteredResults.forEach((page) => {

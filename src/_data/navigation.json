@@ -2,19 +2,23 @@
   "items": [
     {
       "text": "Home",
-      "url": "/"
+      "url": "/",
+      "newtab": false
     },
     {
       "text": "Mods",
-      "url": "/mods/"
+      "url": "/mods/",
+      "newtab": false
     },
     {
       "text": "GitHub",
-      "url": "https://github.com/MrNinjaPowha"
+      "url": "https://github.com/MrNinjaPowha",
+      "newtab": true
     },
     {
       "text": "Twitter",
-      "url": "https://twitter.com/MPowha"
+      "url": "https://twitter.com/MPowha",
+      "newtab": true
     }
   ]
 }
